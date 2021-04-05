@@ -39,7 +39,7 @@ void process_image_callback(const sensor_msgs::Image img)
 {
 
     int white_pixel = 255;
-    float max_vel = .1;
+    float max_vel = .5;
     int imageThirds = img.width/3;
     bool foundWhiteBall = false;
     // TODO: Loop through each pixel in the image and check if there's a bright white one
@@ -52,7 +52,7 @@ void process_image_callback(const sensor_msgs::Image img)
             int j = i%img.width;
 
             if( j > 2*imageThirds){
-                drive_robot(0,max_vel);
+                drive_robot(0,-max_vel);
             }else if( j > imageThirds){
                 drive_robot(max_vel,0);
             }else if( j<=imageThirds){
