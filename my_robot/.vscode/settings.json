@@ -1,5 +1,6 @@
 {
+    "ros.distro": "kinetic",
     "python.autoComplete.extraPaths": [
-        "/opt/ros/noetic/lib/python3/dist-packages"
+        "/opt/ros/kinetic/lib/python2.7/dist-packages"
     ]
 }

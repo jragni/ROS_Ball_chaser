@@ -58,8 +58,9 @@ find_package(catkin REQUIRED COMPONENTS
  add_service_files(
    FILES
    DriveToTarget.srv
-
-)
+#   Service1.srv
+#   Service2.srv
+ )
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -105,9 +106,9 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  #INCLUDE_DIRS include
-  LIBRARIES ball_chaser
-  #CATKIN_DEPENDS message_generation roscpp std_msgs
+#  INCLUDE_DIRS include
+#  LIBRARIES ball_chaser
+#  CATKIN_DEPENDS message_generation roscpp std_msgs
 #  DEPENDS system_lib
 )
 
@@ -139,11 +140,11 @@ include_directories(
 
 add_executable(drive_bot src/drive_bot.cpp)
 target_link_libraries(drive_bot ${catkin_LIBRARIES})
-add_dependencies(drive_bot ball_chaser_generate_messages_cpp)
+add_dependencies(drive_bot drive_bot_generate_messages_cpp)
 
 add_executable(process_image src/process_image.cpp)
 target_link_libraries(process_image ${catkin_LIBRARIES})
-add_dependencies(process_image ball_chaser_generate_messages_cpp)
+add_dependencies(process_image process_image_generate_messages_cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
